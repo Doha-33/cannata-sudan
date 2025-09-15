@@ -1,0 +1,143 @@
+.chat-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+/* أيقونة الشات */
+.chat-icon {
+  width: 55px;
+  height: 55px;
+  background: rgb(191, 5, 22);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* صندوق الشات */
+.chat-box {
+  width: 350px;
+  height: 450px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* الهيدر */
+.chat-header {
+  background: rgb(45, 44, 111);
+  color: white;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.support-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar-header {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+/* الرسائل */
+.chat-body {
+  flex: 1;
+  padding: 15px;
+  background: #f7f7f7;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.msg-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.msg-row.bot {
+  justify-content: flex-start;
+}
+
+.msg-row.user {
+  justify-content: flex-end;
+}
+
+.msg {
+  padding: 10px 15px;
+  border-radius: 18px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.msg.bot {
+  background: #e9ecef;
+  align-self: flex-start;
+}
+
+.msg.user {
+  background: rgb(45, 44, 111);
+  color: white;
+  align-self: flex-end;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+/* الكتابة */
+.chat-footer {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.chat-footer input {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  outline: none;
+  width: 80%;
+}
+
+.chat-footer button {
+  background: rgb(45, 44, 111);
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+
+.close-btn{
+    background-color: white;
+    color: rgb(45, 44, 111);
+    border-radius: 50%;
+}
+
+.input-area{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

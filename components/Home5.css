@@ -1,0 +1,61 @@
+
+.testimonials {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px; 
+  min-height: 400px;
+}
+
+.card1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  width: 23%;
+  background-color: white;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card1:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.map{
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  .testimonials {
+    flex-wrap: nowrap;      
+    overflow-x: auto;          
+    scroll-snap-type: x mandatory; 
+    -webkit-overflow-scrolling: touch;
+    justify-content: start; 
+    gap: 16px;       
+    padding: 10px 0;
+  }
+
+  .testimonials::-webkit-scrollbar {
+    display: none;  
+  }
+
+  .card1 {
+    flex: 0 0 auto;
+    min-width: 100vw; 
+    scroll-snap-align: start;
+    margin-bottom: 0; 
+  }
+
+  .map{
+    width: 100%;
+  }
+
+}

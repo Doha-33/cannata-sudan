@@ -1,0 +1,17 @@
+
+[
+  {
+    "trackingId": "CANN-ORDER123",
+    "email": "customer1@example.com",
+    "latitude": 37.7749,
+    "longitude": -122.4194,
+    "status": "In Transit"
+  },
+  {
+    "trackingId": "ORDER456",
+    "email": "customer2@example.com",
+    "latitude": 37.8044,
+    "longitude": -122.2712,
+    "status": "Delivered"
+  }
+]

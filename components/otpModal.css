@@ -1,0 +1,11 @@
+/* يعمل بلور للخلفية */
+.blur-backdrop {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* تكبير حجم المودال شوية */
+.custom-modal-content {
+  border-radius: 15px;
+  min-height: 300px;
+}

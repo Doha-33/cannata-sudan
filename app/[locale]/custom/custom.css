@@ -1,0 +1,48 @@
+.serv{
+    background-image: url("/images/image16.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    max-height: 250px;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+
+.serv h1{
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .serv {
+    background-size: cover;
+    background-position: top;
+    min-height: 200px;
+  }
+}
+
+.faqs-container {
+  max-width: 90%;
+  margin: auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+
+.faq-question {
+  font-size: 18px;
+  color: #333;
+}
+
+.faq-answer {
+  padding: 10px 0;
+  color: #555;
+  font-size: 16px;
+}

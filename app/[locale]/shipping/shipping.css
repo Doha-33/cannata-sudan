@@ -1,0 +1,28 @@
+.ship{
+    width: 100%;
+    margin: auto;
+}
+.ship .div22{
+  width: 45%;
+  height: 80%;
+  background-color: rgb(45, 44, 111);
+  color: rgb(255, 255, 255);
+  padding: 3%;
+  border-radius: 10px;
+  margin: 15px auto;
+}
+
+.div22 Form{
+  border-radius: 5px;
+  padding: 1%;
+  background-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+ .div22 {
+    width: 90%;
+  }
+.ship .div22{
+  width: 90%;
+}
+}

@@ -1,0 +1,158 @@
+.serv{
+    background-image: url("/images/image16.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 700px;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+
+.serv h1{
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .serv {
+    background-size: cover;
+    background-position: top;
+    min-height: 200px;
+  }
+}
+
+.track {
+  background-image: url("/images/Background+Shadow.png");
+  width: 100%;
+  min-height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tracking-container {
+  width: 75%;
+  padding: 20px;
+  display: flex;
+}
+
+.tracking-form {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+
+.track h3 {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.image {
+  width: 100%;
+  text-align: center;
+}
+
+.image img {
+  width: 90%;
+  max-width: 900px;
+  height: auto;
+}
+.map-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto 50px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .tracking-container {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;  
+    padding: 10px;
+}
+
+  .tracking-form {
+    width: 90%;
+    margin: auto;
+  }
+
+  .image img {
+    width: 100%;
+  }
+    
+}
+
+.order-status-timeline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 20px 10px;
+}
+
+.status-step {
+  position: relative;
+  text-align: center;
+  flex: 1;
+  min-width: 90px;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ccc;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px auto;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.circle.completed {
+  background: #28a745; /* أخضر للـ completed */
+}
+
+.circle.active {
+  background: #e02d25; /* أحمر للحالة الحالية */
+  box-shadow: 0 0 10px rgba(224, 45, 37, 0.7);
+}
+
+.status-label {
+  font-size: 12px;
+  display: block;
+  white-space: nowrap;
+}
+
+.line {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: #ccc;
+  z-index: -1;
+}
+
+.status-step:last-child .line {
+  display: none;
+}

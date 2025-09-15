@@ -1,0 +1,94 @@
+.serv{
+    /* background-image: url("/images/image16.png"); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 700px;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+
+.serv h1{
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .serv {
+    background-size: cover;
+    background-position: top;
+    min-height: 200px;
+  }
+}
+.con h1,
+.con h2,
+.con h5 {
+  color: rgb(200, 35, 56);
+  padding: 3% 0;
+}
+
+.con h3 {
+  color: rgb(45, 44, 111);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .con {
+    flex-direction: column !important;
+    align-items: center;
+  }
+
+  .con > div {
+    width: 90% !important;
+  }
+
+  .con > div > div
+  .form-select {
+    width: 100% !important;
+    font-size: 1rem !important;
+  }
+
+  .con img {
+    width: 100%;
+    height: auto;
+  }
+}
+.faqs-container {
+  max-width: 100%;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+
+.faq-question {
+  font-size: 18px;
+  color: #333;
+}
+
+.faq-answer {
+  padding: 10px 0;
+  color: #555;
+  font-size: 16px;
+}
+
+.service-tap{
+  cursor: pointer;
+}
+
+.service-tap:hover {
+  background-color: rgb(200, 35, 56);
+  padding: 1%;
+  color: white;
+}
+
+.locaion{
+  font-size: small;
+  color: black;
+}
