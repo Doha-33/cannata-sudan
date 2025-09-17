@@ -122,7 +122,6 @@ export default function Home3Client({ locale, services }) {
                 <div className="icon">
                   <img src={item.icon} alt="" />
                 </div>
-                <div className="service-border"></div>
 
                 <div className="service-content">
                   <h5 className="service-title">

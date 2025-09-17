@@ -69,14 +69,20 @@ export default function TeamSlider({ team, locale }) {
       >
         {team.map((item, index) => (
           <SwiperSlide key={index}>
-            <div className="card mb-3">
-              <img
-                className="team-member-image"
-                src={item.image}
-                alt="team-member"
-              />
-              <p className="name">{item.title[isArabic ? "ar" : "en"]}</p>
-              <p className="position">{item.content[isArabic ? "ar" : "en"]}</p>
+            <div className="team-card">
+              <div className="image-wrapper">
+                <img
+                  className="team-member-image"
+                  src={item.image}
+                  alt="team-member"
+                />
+                <div className="overlay">
+                  <p className="name">{item.title[isArabic ? "ar" : "en"]}</p>
+                  <p className="position">
+                    {item.content[isArabic ? "ar" : "en"]}
+                  </p>
+                </div>
+              </div>
             </div>
           </SwiperSlide>
         ))}

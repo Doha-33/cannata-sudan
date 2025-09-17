@@ -32,7 +32,7 @@ export default function LanguageToggle() {
         padding: '4px 8px',
         cursor: 'pointer',
         borderRadius: '4px',
-        backgroundColor: '#C82338',
+        backgroundColor: 'rgb(45, 44, 111)',
       }}
       aria-label="Toggle Language"
     >

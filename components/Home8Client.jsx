@@ -1,54 +1,40 @@
 "use client";
-
+import React from "react";
 import "./Home8.css";
-import motion from "./motionClient";
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-export default function Home8Client({ historyData, isArabic }) {
+
+export default function FlipClient({ historyData = [], isArabic = false }) {
   return (
     <div>
-      <motion.h1
-        className="pt-5"
-        initial={{ opacity: 0, y: 50 }}
+      <h1
+        className="pt-5 text-center"
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8 }}
       >
         {isArabic ? "تاريخنا" : "OUR HISTORY"}
-      </motion.h1>
+      </h1>
 
-      <div className={`timeline ${isArabic ? "rtl" : "ltr"}`}>
-        {historyData.map((item, index) => (
-          <motion.div
-            key={index}
-            className={`timeline__event timeline__event--type${(index % 3) + 1}`}
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: index * 0.2 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <div className="timeline__event__icon">
-              <img
-                className="timeline__event__image"
-                src={item.image}
-                alt="history"
-              />
-            </div>
-
-            <div className="timeline__event__date">{item.date}</div>
-            <div className="timeline__event__content">
-              <div className="timeline__event__title">
-                {item.title[isArabic ? "ar" : "en"]}
+      <div className="flip-grid">
+        {historyData.map((item, idx) => (
+          <div className="flip-card" key={idx}>
+            <div className="flip-inner">
+              <div className="flip-front">
+                <img src={item.image} alt={item.title?.en || "history"} />
+                <div className="f-title">
+                  {item.title[isArabic ? "ar" : "en"]}
+                </div>
               </div>
-              <div className="timeline__event__description">
+              <div className="flip-back">
+                <div className="f-date">{item.date}</div>
                 <div
+                  className="f-desc"
                   dangerouslySetInnerHTML={{
                     __html: item.content[isArabic ? "ar" : "en"],
                   }}
                 />
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>

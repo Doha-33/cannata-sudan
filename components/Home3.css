@@ -5,25 +5,14 @@
     width: 80%;
     height: 100%;
     margin: auto;
-    clip-path: polygon(0 24%, 100% 0, 100% 100%, 0% 100%);
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
     padding: 20px;
-    padding-top: 80px;
     right: 25%;
+    border-radius: 10px;
 }
-
-.service-border{
-  position: absolute;
-  top: -30px;
-  left: -5%;
-  width: 80%;
-  height: 100px;
-  z-index: 5;
-  background-color: #C82338;
-  clip-path: polygon(0 90%, 100% 20%, 100% 30%, 0% 100%);}
 
 .icon {
   position: absolute;
@@ -70,6 +59,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 20px; 
+  border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -83,6 +73,7 @@
   width: 90%;
   height: 65%;
   position: absolute;
+  border-radius: 10px;
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);}
 
 

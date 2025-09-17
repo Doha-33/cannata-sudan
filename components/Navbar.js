@@ -1,13 +1,15 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Navbar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import LanguageToggle from "./LanguageSwitcher";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import useTranslationClient from "@/hooks/useTranslationClient";
 import Link from "next/link";
-import { useRouter, useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { getAPI } from "@/Services/APIs";
 
 const Navbar = () => {
@@ -15,26 +17,22 @@ const Navbar = () => {
   const params = useParams();
   const locale = params.locale || "en";
   const { i18n } = useTranslation();
-  const { t } = useTranslationClient();
+  const { t, ready } = useTranslationClient();
   const isArabic = i18n.language === "ar";
   const router = useRouter();
   const [authToken, setAuthToken] = useState(null);
   const [userName, setUserName] = useState("");
 
-  // ✅ تحميل أولي + الاستماع للتغيرات
   useEffect(() => {
-    const loadAuth = () => {
+    const handleStorageChange = () => {
       const token = localStorage.getItem("Auth_Token");
       const name = localStorage.getItem("User_Name");
       setAuthToken(token);
       setUserName(name || "");
     };
 
-    loadAuth(); // أول مرة
-
-    // listener للتغيرات بين التبويبات أو من window.dispatchEvent
-    window.addEventListener("storage", loadAuth);
-    return () => window.removeEventListener("storage", loadAuth);
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
 
   const handleNavItemClick = () => {
@@ -51,10 +49,9 @@ const Navbar = () => {
 
   const removeToken = () => {
     localStorage.removeItem("Auth_Token");
-    localStorage.removeItem("User_Name");
-    setAuthToken(null);
-    setUserName("");
-    window.dispatchEvent(new Event("storage")); // ✨ عشان يحدث الـ Navbar فوراً
+    localStorage.removeItem("User_Name"); // لو عايزة تمسحي الاسم برضه
+    setAuthToken(null); // ✨ تحدثي الstate
+    setUserName(""); // ✨ تمسحي الاسم من الواجهة
   };
 
   useEffect(() => {
@@ -62,19 +59,18 @@ const Navbar = () => {
       .then((res) => {
         setSetting(res.data.data[0]);
       })
-      .catch(() => {});
+      .catch();
   }, []);
 
   useEffect(() => {
-    import("bootstrap/dist/js/bootstrap.bundle.min.js");
+    import("bootstrap/dist/js/bootstrap.bundle.min.js").then(() => {});
   }, []);
 
   return (
     <>
-      {/* ✅ الهيدر العلوي */}
       <div
         className="fixed-header d-flex justify-content-between align-items-center px-3 px-md-5 py-1 text-white"
-        style={{ backgroundColor: "rgb(191, 5, 22)", height: "40px" }}
+        style={{ backgroundColor: "#C82338", height: "40px" }}
       >
         <div className="d-flex align-items-center link">
           <IoPersonCircleOutline size={20} />
@@ -84,6 +80,7 @@ const Navbar = () => {
                 <span className="link text-white">
                   {t("Welcome")}, {userName} /
                 </span>
+
                 <Link
                   onClick={removeToken}
                   className="link ms-2"
@@ -95,10 +92,11 @@ const Navbar = () => {
             ) : (
               <div>
                 <Link className="link" href={`/${locale}/signUp`}>
-                  {t("Sign Up")}
-                </Link>{" "}
-                /{" "}
+                  {t("Sign Up")}{" "}
+                </Link>
+                /
                 <Link className="link" href={`/${locale}/login`}>
+                  {" "}
                   {t("Sign In")}
                 </Link>
               </div>
@@ -109,16 +107,15 @@ const Navbar = () => {
           <Link
             className="btn btn-sm d-none d-lg-block my-0 mx-5"
             href="https://new.cannata.co/"
-            style={{ backgroundColor: "#C82338", color: "white" }}
+            style={{ backgroundColor: "rgb(45, 44, 111)", color: "white" }}
             type="button"
           >
-            {t("Sudan Web Site")}
+            {t("UEA Site")}
           </Link>
           <LanguageToggle />
         </div>
       </div>
 
-      {/* ✅ النافبار */}
       <nav
         className="navbar navbar-expand-lg bg-white shadow px-3 px-md-5 "
         style={{
@@ -143,6 +140,60 @@ const Navbar = () => {
           </button>
 
           <div className="collapse navbar-collapse mt-3 mt-lg-0" id="navbarNav">
+            <div
+              className="d-flex align-items-center justify-content-center"
+              style={{ position: "relative", width: "400px" }}
+            >
+              <button
+                className={`py-2 ${isArabic ? "ps-5" : "pe-5"}`}
+                onClick={() => {
+                  router.push(`/${locale}/shipping`);
+                  handleNavItemClick();
+                }}
+                style={{
+                  backgroundColor: "#C82338",
+                  color: "white",
+                  clipPath: isArabic
+                    ? "polygon(0 0, 100% 0, 100% 100%, 30% 100%)"
+                    : "polygon(0 0, 100% 0, 70% 100%, 0% 100%)",
+                  direction: isArabic ? "rtl" : "ltr",
+                  textAlign: "center",
+                  fontSize: "1rem",
+                  whiteSpace: "nowrap",
+                  cursor: "pointer",
+                  border: "none",
+                  width: "180px",
+                  position: "absolute",
+                  right: isArabic ? "-5%" : "60%",
+                }}
+              >
+                {t("shipping")}
+              </button>
+              <button
+                className={`py-2 ${isArabic ? "pe-5" : "ps-5"}`}
+                onClick={() => {
+                  router.push(`/${locale}/tracking`);
+                  handleNavItemClick();
+                }}
+                style={{
+                  backgroundColor: "rgb(45, 44, 111)",
+                  color: "white",
+                  clipPath: isArabic
+                    ? "polygon(0% 0%, 70% 0%, 100% 100%, 0% 100%)"
+                    : "polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                  direction: isArabic ? "rtl" : "ltr",
+                  textAlign: "center",
+                  fontSize: "1rem",
+                  whiteSpace: "nowrap",
+                  cursor: "pointer",
+                  border: "none",
+                  width: "180px",
+                }}
+              >
+                {t("Tracking")}
+              </button>
+            </div>
+
             <ul
               className={`navbar-nav mb-2 mb-lg-0 ${
                 isArabic ? "ms-auto" : "me-auto"
@@ -194,7 +245,7 @@ const Navbar = () => {
                   {t("gallary")}
                 </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link
                   className="nav-link"
                   href={`/${locale}/tracking`}
@@ -202,7 +253,7 @@ const Navbar = () => {
                 >
                   {t("Tracking")}
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <Link
                   className="nav-link"
@@ -215,15 +266,6 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="d-flex align-items-center justify-content-center">
-            <Link
-              className="btn btn-sm d-none d-lg-block my-0 mx-5"
-              href="http://sodan.corebrackets.com/"
-              style={{ backgroundColor: "rgb(45, 44, 111)", color: "white" }}
-              type="button"
-            >
-              {t("Dubai Web Site")}
-            </Link>
-
             <Link href={`/${locale}/`}>
               <img
                 src={setting?.logo || "/cannata21.png"}
