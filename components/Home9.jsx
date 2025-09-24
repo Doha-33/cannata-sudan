@@ -9,7 +9,7 @@ export default async function Home9({ locale }) {
 
   return (
     <div className="py-5">
-      <h1 className="text-center">{isArabic ? "كيف نعمل" : "How we work"}</h1>
+      <h2 className="text-center">{isArabic ? "كيف نعمل" : "How we work"}</h2>
       <div className="grid-container">
         {Array.isArray(items) &&
           items.map((item, index) => (

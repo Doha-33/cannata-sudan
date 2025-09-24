@@ -1,0 +1,151 @@
+.editprofile-container {
+  max-width: 100%;
+  margin: auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+}
+
+.profile-section {
+  background-color: #fff;
+  width: 80%;
+  margin: auto;
+  border-radius: 12px;
+  padding: 30px 40px;
+  margin-top: 2%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.profile-header h2 {
+  font-size: 24px;
+  color: #111;
+  margin: 0;
+}
+
+.profile-header p {
+  font-size: 16px;
+  color: #666;
+}
+
+.edit-btn, .save-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.edit-btn {
+  background-color: #e0f0ff;
+  border: 1px solid #0070f3;
+  color: #0070f3;
+}
+
+.edit-btn:hover {
+  background-color: #cce4ff;
+}
+
+.save-btn {
+  background-color: #0070f3;
+  border: none;
+  color: #fff;
+}
+
+.save-btn:hover {
+  background-color: #0056b3;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+
+.form-group input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  transition: all 0.3s;
+}
+
+.form-group input.editable {
+  background-color: #fff;
+  border-color: #0070f3;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #0070f3;
+  box-shadow: 0 0 5px rgba(0,112,243,0.3);
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.cancel-btn {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cancel-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* Password fields styling */
+.form-group input[type="password"] {
+  background-color: #fff0f5;
+  border-color: #ff7f7f;
+}
+
+.form-group input[type="password"]:focus {
+  border-color: #ff4d4d;
+  box-shadow: 0 0 5px rgba(255,77,77,0.3);
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .edit-btn, .save-btn {
+    top: auto;
+    bottom: 10px;
+  }
+  .profile-section {
+    padding: 20px;
+  }
+}

@@ -18,9 +18,9 @@ export default function Home3Client({ locale, services }) {
     <div
       className={`bg-light ${isArabic ? "ar" : ""} py-lg-5`}
     >
-      <h1 style={{ textAlign: "center", padding: "30px" }}>
+      <h2 style={{ textAlign: "center", padding: "30px" }}>
         {t("OUR CORE SERVICES")}
-      </h1>
+      </h2>
 
       {/* <motion.div
         initial={{ opacity: 0, y: 40 }}

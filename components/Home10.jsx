@@ -9,9 +9,9 @@ export default async function Home10({ locale }) {
   return (
     <div className="responsive-container-block outer-container">
       <div className="responsive-container-block inner-container">
-        <h1 className="text-blk heading-text">
+        <h2 className="text-blk heading-text">
           {locale === "ar" ? "فريق CANNATA" : "CANNATA Team"}
-        </h1>
+        </h2>
         <div className="responsive-container-block card-container">
           <TeamSlider team={team} locale={locale} />
         </div>

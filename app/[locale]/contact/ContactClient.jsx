@@ -58,7 +58,7 @@ export default function ContactClient({ setting, locale }) {
         viewport={{ once: true }}
         transition={{ duration: 0.7, delay: 0.3 }}
       >
-        <h1 className="py-3">{t("Get In Touch")}</h1>
+        <h2 className="py-3">{t("Get In Touch")}</h2>
         <div className="call-divs">
           <div className="call py-3">
             <img src="/images/Frame14.png" style={{ width: "18%" }} alt="" />
@@ -110,7 +110,7 @@ export default function ContactClient({ setting, locale }) {
           transition={{ duration: 0.7 }}
         >
           <div>
-            <h1>{t("Have Any Questions?")}</h1>
+            <h2>{t("Have Any Questions?")}</h2>
 
             <Form onSubmit={handleSubmit}>
               <div className="d-flex flex-column flex-md-row justify-content-between w-100">

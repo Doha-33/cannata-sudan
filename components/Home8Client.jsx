@@ -5,14 +5,14 @@ import "./Home8.css";
 export default function FlipClient({ historyData = [], isArabic = false }) {
   return (
     <div>
-      <h1
+      <h2
         className="pt-5 text-center"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
         {isArabic ? "تاريخنا" : "OUR HISTORY"}
-      </h1>
+      </h2>
 
       <div className="flip-grid">
         {historyData.map((item, idx) => (

@@ -24,46 +24,43 @@ const BlogDetailsPage = async ({ params }) => {
     <>
       <PageServerHeader titleKey="blog" />
 
-      <div className="container blog-details" dir={isArabic ? "rtl" : "ltr"}>
-        <div className="blog-main">
-          <img
-            src={post.image}
-            alt={post.image_alt}
-            className="blog-main-img"
-          />
+      <div className="blog-details-container" dir={isArabic ? "rtl" : "ltr"}>
+        <div className="blog-content-area">
+          <div className="blog-cover">
+            <img src={post.image} alt={post.image_alt} />
+          </div>
           <h2 className="blog-title">{post.title[isArabic ? "ar" : "en"]}</h2>
           <div
-            className="blog-content"
+            className="blog-text"
             dangerouslySetInnerHTML={{
               __html: post.content[isArabic ? "ar" : "en"],
             }}
           />
         </div>
 
-        {/* Sidebar */}
-        <aside className="blog-sidebar">
+        <aside className="blog-latest">
           <h3>{isArabic ? "آخر المقالات" : "Latest Blogs"}</h3>
-          {latestPosts.map((blog) => (
-            <div key={blog.id} className="sidebar-card">
-              {blog.image && (
-                <img
-                  src={blog.image}
-                  alt={blog.image_alt || ""}
-                  className="sidebar-img"
-                />
-              )}
-              <div>
+          <div className="latest-grid">
+            {latestPosts.map((blog) => (
+              <div key={blog.id} className="latest-card">
+                {blog.image && (
+                  <img
+                    src={blog.image}
+                    alt={blog.image_alt || ""}
+                    className="latest-img"
+                  />
+                )}
                 <h5>{blog.title?.[isArabic ? "ar" : "en"] || "No Title"}</h5>
                 <p
                   dangerouslySetInnerHTML={{
                     __html:
-                      blog.content?.[isArabic ? "ar" : "en"]?.slice(0, 80) ||
+                      blog.content?.[isArabic ? "ar" : "en"]?.slice(0, 60) ||
                       "",
                   }}
                 />
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </aside>
       </div>
     </>

@@ -3,10 +3,9 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import "./Footer.css";
 import { FiPhoneCall } from "react-icons/fi";
-import { FaLocationDot } from "react-icons/fa6";
+import { FaLocationDot, FaYoutube } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
-import { AiFillInstagram, AiFillTikTok } from "react-icons/ai";
-import { FaLinkedin } from "react-icons/fa";
+import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -15,6 +14,55 @@ const Footer = ({ locale, setting, services }) => {
   const isArabic = locale === "ar";
   const router = useRouter();
 
+  const socials = [
+    {
+      icon: <FaFacebook />,
+      url: setting.facebook ||"https://www.facebook.com",
+    },
+    { icon: <AiFillInstagram />, url: setting.instagram ||"https://www.instagram.com/cannata_cargo_services/" },
+    { icon: <AiFillTwitterCircle />, url: setting.twitter || "https://x.com/CannataCargoUAE" },
+    {
+      icon: <FaYoutube />,
+      url: setting.youtube ||"https://www.linkedin.com/company/cannata-world-wide-cargo-services/",
+    },
+  ];
+
+  const Locations = [
+    {
+      lat: 25.288306,
+      lng: 55.318263,
+      name: {
+        en: "78Q9+79C - Deira - Dubai - United Arab Emirates",
+        ar: "78Q9+79C - ديرة - دبي - الإمارات العربية المتحدة",
+      },
+    },
+    {
+      lat: 25.230326,
+      lng: 55.363081,
+      name: {
+        en: "3 7A Street - Umm Ramool - Dubai - United Arab Emirates",
+        ar: "3 7A Street - أم رمول - دبي - الإمارات العربية المتحدة",
+      },
+    },
+    {
+      lat: 24.9609375,
+      lng: 55.0633125,
+      name: {
+        en: "X367+98H - Jebel Ali - Jebel Ali Free Zone - Dubai - United Arab Emirates",
+        ar: "X367+98H - جبل علي - منطقة جبل علي الحرة - دبي - الإمارات العربية المتحدة",
+      },
+    },
+  ];
+  const locations = setting?.locations?.length
+    ? setting.locations.map((loc, index) => ({
+        lat: parseFloat(loc.latitude),
+        lng: parseFloat(loc.longitude),
+        name: {
+          en: loc?.name?.en || Locations[index]?.name.en,
+          ar: loc?.name?.ar || Locations[index]?.name.ar,
+        },
+      }))
+    : Locations;
   return (
     <footer className={`footer ${isArabic ? "rtl" : "ltr"}`}>
       <div className="container">
@@ -24,19 +72,12 @@ const Footer = ({ locale, setting, services }) => {
               {/* Follow Us */}
               <div className="footer-col pb-5">
                 <h4>{t("Follow Us:")}</h4>
-                <div className="social-links">
-                  <a href="https://www.facebook.com/share/1D3G7KnrB5/?mibextid=wwXIfr">
-                    <FaFacebook size={"35px"} color="rgb(200, 35, 56)" />
-                  </a>
-                  <a href="https://www.instagram.com/cannata.ar?igsh=MW50NDA4cDhlY2pvcA%3D%3D&utm_source=qr">
-                    <AiFillInstagram size={"35px"} color="rgb(200, 35, 56)" />
-                  </a>
-                  <a href="https://www.tiktok.com/@cannata.ar?_t=ZS-8y9oNFZ9HGb&_r=1">
-                    <AiFillTikTok size={"35px"} color="rgb(200, 35, 56)" />
-                  </a>
-                  <a href="https://www.linkedin.com/company/cannata-world-wide-cargo-services/">
-                    <FaLinkedin size={"35px"} color="rgb(200, 35, 56)" />
-                  </a>
+                <div className="socials">
+                  {socials.map((s, i) => (
+                    <a href={s.url} key={i} target="_blank" rel="noreferrer">
+                      {s.icon}
+                    </a>
+                  ))}
                 </div>
               </div>
 
@@ -52,11 +93,6 @@ const Footer = ({ locale, setting, services }) => {
                   </li>
                   <li>
                     <Link href={`/${locale}/contact`}>{t("contact")}</Link>
-                  </li>
-                  <li>
-                    <Link href={`/${locale}/custom`}>
-                      {t("Custom Clearnace")}
-                    </Link>
                   </li>
                 </ul>
               </div>
@@ -122,7 +158,7 @@ const Footer = ({ locale, setting, services }) => {
                     style={{ backgroundColor: "rgb(200, 35, 56)" }}
                   />
                   <div className="m-1 text-light d-flex flex-column">
-                    {setting?.locations?.map((location, index) => (
+                    {locations.map((location, index) => (
                       <span className="location" key={index}>
                         {isArabic ? location.name.ar : location.name.en}
                       </span>
@@ -173,7 +209,7 @@ const Footer = ({ locale, setting, services }) => {
                     style={{ backgroundColor: "rgb(200, 35, 56)" }}
                   />
                   <div className="m-1 text-light d-flex flex-column">
-                    {setting?.locations?.map((location, index) => (
+                    {locations.map((location, index) => (
                       <span className="location" key={index}>
                         {isArabic ? location.name.ar : location.name.en}
                       </span>
@@ -194,11 +230,6 @@ const Footer = ({ locale, setting, services }) => {
                   </li>
                   <li>
                     <Link href={`/${locale}/contact`}>{t("contact")}</Link>
-                  </li>
-                  <li>
-                    <Link href={`/${locale}/custom`}>
-                      {t("Custom Clearnace")}
-                    </Link>
                   </li>
                 </ul>
               </div>
@@ -227,19 +258,12 @@ const Footer = ({ locale, setting, services }) => {
               {/* Follow Us */}
               <div className="footer-col pb-5">
                 <h4>{t("Follow Us:")}</h4>
-                <div className="social-links">
-                  <a href="https://www.facebook.com/share/1D3G7KnrB5/?mibextid=wwXIfr">
-                    <FaFacebook size={"35px"} color="rgb(200, 35, 56)" />
-                  </a>
-                  <a href="https://www.instagram.com/cannata.ar?igsh=MW50NDA4cDhlY2pvcA%3D%3D&utm_source=qr">
-                    <AiFillInstagram size={"35px"} color="rgb(200, 35, 56)" />
-                  </a>
-                  <a href="https://www.tiktok.com/@cannata.ar?_t=ZS-8y9oNFZ9HGb&_r=1">
-                    <AiFillTikTok size={"35px"} color="rgb(200, 35, 56)" />
-                  </a>
-                  <a href="https://www.linkedin.com/company/cannata-world-wide-cargo-services/">
-                    <FaLinkedin size={"35px"} color="rgb(200, 35, 56)" />
-                  </a>
+                <div className="socials">
+                  {socials.map((s, i) => (
+                    <a href={s.url} key={i} target="_blank" rel="noreferrer">
+                      {s.icon}
+                    </a>
+                  ))}
                 </div>
               </div>
             </>

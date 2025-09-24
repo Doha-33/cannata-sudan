@@ -1,9 +1,7 @@
 footer {
-  background-image: url("/images/sh.png");
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: cover;
+  background: linear-gradient(to right, #C82338, rgb(45, 44, 111));
 }
+
 
 .footer-row {
   display: flex;
@@ -98,4 +96,20 @@ ul{
 .footer.ltr {
   direction: ltr;
   text-align: left;
+}
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #c82338;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+.socials a:hover {
+  transform: scale(1.1);
+  background: #9b1c2c;
 }

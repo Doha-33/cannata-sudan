@@ -35,9 +35,9 @@ export default function Home7Client({ isArabic }) {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.5 }}
       >
-        <h1 style={{ textAlign: "center", padding: "2%", color: "white" }}>
+        <h2 style={{ textAlign: "center", padding: "2%", color: "white" }}>
           {t("Request A Quote")}
-        </h1>
+        </h2>
 
         <Form onSubmit={(e) => e.preventDefault()}>
           <div className="d-flex justify-content-center w-100 form-group">
@@ -74,7 +74,7 @@ export default function Home7Client({ isArabic }) {
             className="my-3 btn d-flex justify-content-center align-items-center"
             style={{
               width: "100%",
-              backgroundColor: "rgb(200, 35, 56)",
+              backgroundColor: "rgb(45, 44, 111)",
               border: "none",
               cursor: "pointer",
               textAlign: "center",

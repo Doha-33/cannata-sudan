@@ -4,7 +4,7 @@
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
-    min-height: 700px;
+    min-height: 250px;
     color: white;
     text-align: center;
     display: flex;
@@ -33,14 +33,13 @@
     width: 80%;
     height: 100%;
     margin: auto;
-    clip-path: polygon(0 24%, 100% 0, 100% 100%, 0% 100%);
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
     padding: 20px;
-    padding-top: 80px;
     right: 25%;
+    border-radius: 10px;
 }
 
 .service-border{
@@ -108,11 +107,11 @@ clip-path: polygon(0 90%, 100% 20%, 100% 30%, 0% 100%);}
 }
 
 .SERVICES .img1 {
-  width: 95%;
+  width: 90%;
   height: 65%;
   position: absolute;
+  border-radius: 10px;
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);}
-
 
 @media screen and (max-width: 767px) {
   .ser {

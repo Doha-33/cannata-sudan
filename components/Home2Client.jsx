@@ -32,9 +32,9 @@ const Home2 = ({ about }) => {
             {t("ABOUT CANNATA INTAERNATIONAL")}
           </span>
 
-          <h1 style={{ color: "rgb(45,43,111)" }}>
+          <h2 style={{ color: "rgb(45,43,111)" }}>
             {t("Total Logistics Solution")}
-          </h1>
+          </h2>
           <div
             dangerouslySetInnerHTML={{
               __html: about?.about[isArabic ? "ar" : "en"] || "",

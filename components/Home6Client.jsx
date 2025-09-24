@@ -21,9 +21,9 @@ export default function Home6Client({locale, posts }) {
       transition={{ duration: 1 }}
       viewport={{ once: true, amount: 0.3 }}
     >
-      <h1 className="mb-5" style={{ textAlign: "center" }}>
+      <h2 className="mb-5" style={{ textAlign: "center" }}>
         {t("Latest Blogs")}
-      </h1>
+      </h2>
 
       <Swiper
         modules={[Navigation]}

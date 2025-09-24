@@ -25,23 +25,17 @@ export default function AboutClient2({ about, locale }) {
           transition={{ duration: 0.8 }}
           viewport={{ once: true, amount: 0.5 }}
         >
-          <h1 className="py-3" style={{ color: "black" }}>
+          <h2 className="py-3" style={{ color: "black" }}>
             {t("OUR MISSION")}
-          </h1>
-          <div
+          </h2>
+          <div style={{fontSize:"1.2rem"}}
             dangerouslySetInnerHTML={{
               __html: about?.mission?.[isArabic ? "ar" : "en"] || "",
             }}
           />
         </motion.div>
         <div className="image-contain" style={{ width: "40%", textAlign: "center" }}>
-          <div
-            className="history-img"
-            style={{
-              backgroundImage:
-                "url('https://i.pinimg.com/736x/09/4d/59/094d59d143775be09293be64894cafb7.jpg')",
-            }}
-          ></div>
+          <img src="/images/mission.png" alt="" />
         </div>
       </motion.div>
 
@@ -53,13 +47,7 @@ export default function AboutClient2({ about, locale }) {
         viewport={{ once: true, amount: 0.5 }}
       >
         <div className="image-contain" style={{ width: "40%", textAlign: "center" }}>
-          <div
-            className="history-img"
-            style={{
-              backgroundImage:
-                "url('https://i.pinimg.com/736x/4b/9d/6c/4b9d6c0162302a7e5a90f5ce6696d671.jpg')",
-            }}
-          ></div>
+          <img src="/images/vision.png" />
         </div>
         <motion.div
           className="history"
@@ -68,10 +56,10 @@ export default function AboutClient2({ about, locale }) {
           transition={{ duration: 0.8 }}
           viewport={{ once: true, amount: 0.5 }}
         >
-          <h1 className="py-3" style={{ color: "black" }}>
+          <h2 className="py-3" style={{ color: "black" }}>
             {t("OUR VISION")}
-          </h1>
-          <div
+          </h2>
+          <div style={{fontSize:"1.2rem"}}
             dangerouslySetInnerHTML={{
               __html: about?.vision?.[isArabic ? "ar" : "en"] || "",
             }}
